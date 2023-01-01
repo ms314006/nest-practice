@@ -1,13 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-import { ProductsService } from './products.service';
-import { UserService } from 'src/modules/user/user.service';
+import IProductsService from './interfaces/productsService.interface';
+import IUserService from '../user/interfaces/userService.interface';
 import Product from 'src/classes/Product';
 
 @Controller('products')
 export class ProductsController {
   constructor(
-    private userService: UserService,
-    private productsService: ProductsService,
+    private userService: IUserService,
+    private productsService: IProductsService,
   ) {}
 
   @Get()
